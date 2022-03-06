@@ -1,0 +1,9 @@
+c Solving N Queen problem
+c Created by queens.py script
+c which was writen by Antonin Jarolim
+c
+p cnf 3 2 
+1 -3 0
+1 -2 0
+2 -3 -1 -2 0
+
