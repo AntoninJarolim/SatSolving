@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 # shellcheck disable=SC2121
-set N 8
+set N $argv[1]
 clean
 python3 queens.py $N > queens.in
 cat queens.in
