@@ -1,8 +1,0 @@
-c Solving 4 Queen problem
-c Created by queens.py script
-c which was writen by Antonin Jarolim
-c
-p cnf 1 2 
-1 0
--1 0
-
