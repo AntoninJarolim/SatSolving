@@ -7,3 +7,5 @@ cat queens.in
 echo "Generated input $N.";
 minisat queens.in queens.out
 cat queens.out
+
+python3 chessVisualizer.py

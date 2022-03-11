@@ -1,5 +1,4 @@
 import sys
-import math
 import numpy as np
 
 if len(sys.argv) < 2:
