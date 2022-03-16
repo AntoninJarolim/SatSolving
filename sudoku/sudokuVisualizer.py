@@ -3,8 +3,8 @@ import string
 
 import numpy as np
 values = []
-# with open("sudoku_lengal.in", "r") as file:
-with open("ez_sudoku.in", "r") as file:
+with open("sudoku/sudoku_lengal.in", "r") as file:
+# with open("sudoku/ez_sudoku.in", "r") as file:
     for line in file:
         values.append([int(num) for num in line.split()])
 
@@ -35,15 +35,21 @@ print()
 print("Pičo jak to je furt:")
 print(values)
 
-reshaped = np.arange(9*9).reshape(9, 9) + 1
+rows = np.arange(9) + 1
+cols = np.arange(9) + 1
+
 cur = values.pop(0)
-for row in reshaped:
-    for num in row:
-        if len(values) == 0:
-            exit(0)
-        if cur[0] * cur[1] == num:
+for row in rows:
+    for col in cols:
+        if cur[0] == row and cur[1] == col:
             print(cur[2], end=" ")
+            if len(values) == 0:
+                exit(0)
             cur = values.pop(0)
         else:
-            print(num, end=" ")
+            print("_", end=" ")
+        if col % 3 == 0:
+            print(" ", end="")
+    if row % 3 == 0:
+        print()
     print()
