@@ -41,7 +41,7 @@ def int3str(st, sec, third):
 
 # load input to array
 input = []
-with open("sudoku_lengal.in", "r") as file:
+with open("sudoku_zadani.in", "r") as file:
 # with open("ez_sudoku.in", "r") as file:
     for line in file:
         input.append([int(num) for num in line.split()])
