@@ -12,6 +12,10 @@ print("p cnf " + str(999-111) + " 3756") # TODO: calc this GUTLY
 def end_it():
     print(0)
 
+def end_with(str):
+    print(str, end=" ")
+    end_it()
+
 def oneInArr(arr):
     for num in arr:
         print(num, end=" ")
@@ -37,8 +41,8 @@ def int3str(st, sec, third):
 
 # load input to array
 input = []
-with open("sudoku/sudoku_lengal.in", "r") as file:
-# with open("sudoku/ez_sudoku.in", "r") as file:
+with open("sudoku_lengal.in", "r") as file:
+# with open("ez_sudoku.in", "r") as file:
     for line in file:
         input.append([int(num) for num in line.split()])
 
@@ -55,8 +59,7 @@ for row in rows:
 
 print("c existing values")
 for val in input:
-    print(int3str(val[0],val[1],val[2]), end=" ")
-    end_it()
+    end_with(int3str(val[0],val[1],val[2]))
 
 print("c one val in row - not 1 1 1 and 1 2 1")
 for row in rows:
@@ -74,10 +77,30 @@ for row in rows:
     for val in vals:
         arr = []
         for col in cols:
-            num = int3str(col, row, val)
+            num = int3str(col, row, val) # here is difference
             arr.append(int(num))
         not_two_in_arr(arr)
         oneInArr(arr)
 
-# print one val in square
+print("c one val in square - not 111 and 221")
+square_positions = [11, 14, 17,
+                   41, 44, 47,
+                   71, 74, 77]
 
+squares = []
+for pos in square_positions:
+    sq = []
+    for row in range(0,3):
+        for col in range(0,3):
+            sq.append(pos + 10*row + col)
+    squares.append(sq)
+
+vals = np.arange(1, 10)
+for square in squares:
+    for value in vals:
+        val_in_sq = []
+        for pos in square:
+            pos_arr = [digit for digit in str(pos)]
+            num = int3str(pos_arr[0], pos_arr[1], value)
+            val_in_sq.append(int(num))
+        not_two_in_arr(val_in_sq)

@@ -15,7 +15,6 @@ mode = sys.argv[1]
 
 if mode == "-clause":
     with open(sys.argv[2], "r") as file:
-        # with open("sudoku/ez_sudoku.in", "r") as file:
         for last_line in file:
             pass
 
@@ -38,11 +37,9 @@ else:
 
 
 # sort values
-print(values)
 values = sorted(values, key=lambda x:x[2])
 values = sorted(values, key=lambda x:x[1])
 values = sorted(values, key=lambda x:x[0])
-print(values)
 
 # check duplicities
 dupes = [x for n, x in enumerate(values) if x in values[:n]]
@@ -59,13 +56,12 @@ if len(dupes) != 0:
     exit(1)
 
 
-print()
-print(values)
 
 rows = np.arange(9) + 1
 cols = np.arange(9) + 1
 
 cur = values.pop(0)
+
 for row in rows:
     for col in cols:
         if cur[0] == row and cur[1] == col:
