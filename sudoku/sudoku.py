@@ -47,17 +47,18 @@ rows = np.arange(9) + 1
 cols = np.arange(9) + 1
 vals = np.arange(9) + 1
 
-# not 1 1 1 and 1 1 2
+print("c not 1 1 1 and 1 1 2")
 for row in rows:
     for col in cols:
-        pass #notTwoValuesAt(row, col)
+        notTwoValuesAt(row, col)
 
-# existing values
+
+print("c existing values")
 for val in input:
-    # print(int3str(val[0],val[1],val[2]), end="")
-    pass # end_it()
+    print(int3str(val[0],val[1],val[2]), end=" ")
+    end_it()
 
-# print one val in row - not 1 1 1 and 1 2 1
+print("c one val in row - not 1 1 1 and 1 2 1")
 for row in rows:
     for val in vals:
         arr = []
@@ -68,7 +69,7 @@ for row in rows:
         oneInArr(arr)
 
 
-# print one val in col - not 1 1 1 and 1 2 1
+print("c one val in col - not 1 1 1 and 1 2 1")
 for row in rows:
     for val in vals:
         arr = []

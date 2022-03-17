@@ -1,12 +1,40 @@
 import math
 import string
+import sys
 
 import numpy as np
+
+def digit_list(num):
+    arr = []
+    for digit in str(num):
+        arr.append(int(digit))
+    return arr
+
 values = []
-with open("sudoku/sudoku_lengal.in", "r") as file:
-# with open("sudoku/ez_sudoku.in", "r") as file:
-    for line in file:
-        values.append([int(num) for num in line.split()])
+mode = sys.argv[1]
+
+if mode == "-clause":
+    with open(sys.argv[2], "r") as file:
+        # with open("sudoku/ez_sudoku.in", "r") as file:
+        for last_line in file:
+            pass
+
+    all = [int(num) for num in last_line.split()]
+    all = all[110:]
+    all = [n for n in all if n>0]
+    for n in all:
+        values.append(digit_list(n))
+
+
+elif mode == "-input":
+    with open(sys.argv[2], "r") as file:
+        # with open("sudoku/ez_sudoku.in", "r") as file:
+        for line in file:
+            values.append([int(num) for num in line.split()])
+
+else:
+    print("ERROR\nVALID MODE NOT SPECIFIED")
+    exit(99)
 
 
 # sort values
@@ -32,7 +60,6 @@ if len(dupes) != 0:
 
 
 print()
-print("Pičo jak to je furt:")
 print(values)
 
 rows = np.arange(9) + 1
@@ -53,3 +80,5 @@ for row in rows:
     if row % 3 == 0:
         print()
     print()
+
+
